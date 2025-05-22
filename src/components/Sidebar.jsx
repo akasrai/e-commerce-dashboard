@@ -3,9 +3,9 @@ import { Link } from "react-router"
 const Sidebar = () => {
     return (
         <div className="sidebar">
-            <div>LOGO</div>
+            <div className="logo p-20">ZARA</div>
 
-            <ul>
+            <ul className="menu">
                 <li>
                     <Link to="/">Dashboard</Link>
                 </li>

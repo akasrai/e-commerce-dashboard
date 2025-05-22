@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .flex {
@@ -8,11 +16,67 @@
 }
 
 .sidebar {
-  width: 200px;
+  width: 260px;
   height: 100vh;
+  background-color: #1e1e1e;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 30px;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li a {
+  padding: 8px 20px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.menu li a:hover {
+  background-color: #fff;
+  color: #1e1e1e;
+}
+
+.navbar {
   background-color: #f0f0f0;
+  padding: 10px 20px;
 }
 
 .w-space-available {
   width: -webkit-fill-available;
+}
+
+.justify-content-right {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.user-avatar {
+  background-color: rgb(170, 42, 170);
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.content {
+  padding: 15px 40px;
 }

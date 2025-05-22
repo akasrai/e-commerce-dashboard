@@ -3,10 +3,7 @@ import Sidebar from "../components/Sidebar";
 const Home = () => {
     return (
         <div className="flex">
-            <Sidebar />
-            <div className="w-space-available">
-                <h1>My Dashboard</h1>
-            </div>
+            <h1>My Dashboard</h1>
         </div>
     )
 }

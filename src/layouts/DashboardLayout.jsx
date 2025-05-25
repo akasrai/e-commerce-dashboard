@@ -5,9 +5,9 @@ import Sidebar from "../components/Sidebar";
 
 const DashboardLayout = () => {
     return (
-        <div className="flex">
+        <div className="dashboard-layout">
             <Sidebar />
-            <div className="w-space-available">
+            <div className="dashboard-content">
                 <Navbar />
                 <div className="content">
                     <Outlet />

@@ -1,41 +1,23 @@
 const Table = (props) => {
-    const { products } = props;
+    const { children, headers } = props;
 
-    console.log(products);
-
-
-    
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Image</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Rating</th>
-                    <th>Brand</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Product 1</td>
-                    <td>Image</td>
-                    <td>$10</td>
-                    <td>Category 1</td>
-                    <td>4.5</td>
-                    <td>Brand A</td>
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td>Image</td>
-                    <td>$10</td>
-                    <td>Category 1</td>
-                    <td>4.5</td>
-                    <td>Brand A</td>
-                </tr>
-            </tbody>
-        </table>
+        <div className="table-wrapper">
+            <table className="table" cellSpacing={0} >
+                <thead>
+                    <tr>
+                        {
+                            headers.map((header, index) => (
+                                <th key={index}>{header.label}</th>
+                            ))
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    {children}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

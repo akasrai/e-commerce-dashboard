@@ -15,10 +15,21 @@ body {
   display: flex;
 }
 
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+
+.dashboard-content {
+  grid-column: 2;
+}
+
 .sidebar {
+  position: fixed;
   width: 260px;
   height: 100vh;
   background-color: #1e1e1e;
+  z-index: 1000;
 }
 
 .logo {
@@ -47,6 +58,7 @@ body {
 .navbar {
   background-color: #f0f0f0;
   padding: 10px 20px;
+  position: fixed;
 }
 
 .w-space-available {
@@ -77,6 +89,43 @@ body {
   padding: 20px;
 }
 
+.mr-15 {
+  margin-left: 15px;
+}
+
 .content {
   padding: 15px 40px;
+  margin-top: 55px;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.table {
+  width: max-content;
+}
+.table thead tr {
+  text-align: left;
+}
+
+.table thead tr th,
+td {
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #02b689;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #029f7a;
 }

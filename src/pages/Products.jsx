@@ -1,15 +1,25 @@
-import { useEffect, useState } from "react"
+import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 
-import { fetchProducts } from "../api/productApi";
+
 import Table from "../components/table/Table";
-/**
- * 
- * Products.jsx:25 Uncaught TypeError: Cannot read properties of undefined (reading 'map')
-    at Products (Products.jsx:25:31)
+import { utcToLocal } from "../utils/dateUtils";
+import { fetchProducts } from "../api/productApi";
 
+const headers = [
+    { label: 'Created At', key: 'createdAt' },
+    { label: 'Title', key: 'title' },
+    { label: 'Thumbnail', key: 'thumbnail' },
+    { label: 'Price', key: 'price' },
+    { label: 'Category', key: 'category' },
+    { label: 'Availability Status', key: 'availabilityStatus' },
+    { label: 'Rating', key: 'rating' },
+    { label: 'Brand', key: 'brand' }
+];
 
- */
 const Products = () => {
+    const navigate = useNavigate();
+
     const [data, setData] = useState({});
 
     const getProducts = async () => {
@@ -22,20 +32,42 @@ const Products = () => {
         getProducts();
     }, []);
 
+    const handleAddProduct = () => {
+        navigate('/products/add-product');
+    }
 
     return (
         <div className="">
-            <h1>Products</h1>
-
-            <Table products={data?.products} />
-
-            {
-                Object.keys(data).length === 0
-                    ? <div>Loading...</div>
-                    : data.products?.map((product) => (
-                        <div key={product.id}>{product.title}</div>
-                    ))
-            }
+            <div className="flex ">
+                <h1 className="">Products</h1>
+                <div className="flex align-items-center">
+                    <button className="mr-15" onClick={handleAddProduct} >Add Product</button>
+                </div>
+            </div>
+            <Table headers={headers}>
+                {
+                    !data?.products
+                        ? (
+                            <tr>
+                                <td colSpan="6">Loading...</td>
+                            </tr>
+                        )
+                        : (data.products?.map((product) => (
+                            <tr key={product.id}>
+                                <td>{utcToLocal(product.meta.createdAt)}</td>
+                                <td>{product.title}</td>
+                                <td>
+                                    <img src={product.thumbnail} alt={product.title} style={{ width: '50px', height: '50px' }} />
+                                </td>
+                                <td>${product.price}</td>
+                                <td>{product.category}</td>
+                                <td>{product.availabilityStatus}</td>
+                                <td>{product.rating}</td>
+                                <td>{product.brand}</td>
+                            </tr>
+                        )))
+                }
+            </Table>
         </div>
     )
 }

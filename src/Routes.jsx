@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
+import AddProduct from './pages/AddProduct';
 import PageNotFound from './pages/PageNotFound';
 import ProductDetail from './pages/ProductDetail';
 import DashboardLayout from './layouts/DashboardLayout';
@@ -14,6 +15,7 @@ const AppRoutes = () => {
             <Route element={<DashboardLayout />}>
                 <Route index element={<Home />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/products/add-product" element={<AddProduct />} />
                 <Route path="/products/:productID" element={<ProductDetail />} />
             </Route>
 

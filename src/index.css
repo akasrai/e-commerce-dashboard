@@ -5,10 +5,15 @@
   margin: 0;
 }
 
-body {
+body,
+input,
+button,
+textarea,
+select {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 .flex {
@@ -133,4 +138,54 @@ button {
 
 button:hover {
   background-color: #029f7a;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="number"],
+select:focus {
+  outline: none;
+  border: 1px solid #7cc4ff;
+  box-shadow: 0 0 5px #7cc4ff;
+}
+
+input[type="submit"] {
+  background-color: #02b689;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.is-invalid {
+  border: 1px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.add-product-form {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
 }

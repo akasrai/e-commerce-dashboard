@@ -36,6 +36,10 @@ const Products = () => {
         navigate('/products/add-product');
     }
 
+    const handleViewProduct = (productId) => {
+        navigate(`/products/${productId}`);
+    }
+
     return (
         <div className="">
             <div className="flex ">
@@ -53,7 +57,7 @@ const Products = () => {
                             </tr>
                         )
                         : (data.products?.map((product) => (
-                            <tr key={product.id}>
+                            <tr key={product.id} onClick={() => handleViewProduct(product.id)} className="cursor-pointer">
                                 <td>{utcToLocal(product.meta.createdAt)}</td>
                                 <td>{product.title}</td>
                                 <td>

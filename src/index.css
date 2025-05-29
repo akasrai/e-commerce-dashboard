@@ -142,7 +142,9 @@ button:hover {
 
 input[type="text"],
 input[type="number"],
-select {
+input[type="email"],
+select,
+textarea {
   padding: 8px 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -151,6 +153,8 @@ select {
 
 input[type="text"],
 input[type="number"],
+input[type="email"],
+textarea,
 select:focus {
   outline: none;
   border: 1px solid #7cc4ff;
@@ -188,4 +192,20 @@ input[type="submit"] {
   max-width: 600px;
   margin: 0 auto;
   margin-top: 50px;
+}
+
+.contact-form {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.bg-dark {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

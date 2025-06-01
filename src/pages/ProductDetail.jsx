@@ -40,4 +40,7 @@ export default ProductDetail
  * Add edit functionality - can open a modal with form to edit product
  * Bonus: add pagination to products page
  * 
+ * Form Library - react-hook-form, formik
+ * 
+ * 
  */

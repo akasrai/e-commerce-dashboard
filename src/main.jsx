@@ -5,14 +5,17 @@ import { ToastContainer } from 'react-toastify';
 
 
 import AppRoutes from './Routes.jsx'
+import AuthContext from './components/AuthContext.jsx';
 
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <StrictMode>
-      <AppRoutes />
-      <ToastContainer />
-    </StrictMode>
-  </BrowserRouter>
+  <AuthContext>
+    <BrowserRouter>
+      <StrictMode>
+        <AppRoutes />
+        <ToastContainer />
+      </StrictMode>
+    </BrowserRouter>
+  </AuthContext>
 );

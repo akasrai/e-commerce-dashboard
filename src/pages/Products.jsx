@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 import Table from "../components/table/Table";
 import { utcToLocal } from "../utils/dateUtils";
 import { fetchProducts } from "../api/productApi";
+import { AuthenticationContext } from "../components/AuthContext";
 
 const headers = [
     { label: 'Created At', key: 'createdAt' },
@@ -21,6 +22,7 @@ const Products = () => {
     const navigate = useNavigate();
 
     const [data, setData] = useState({});
+    const { user } = useContext(AuthenticationContext);
 
     const getProducts = async () => {
         const data = await fetchProducts();
@@ -42,6 +44,8 @@ const Products = () => {
 
     return (
         <div className="">
+            <pre>{JSON.stringify(user)}</pre>
+
             <div className="flex ">
                 <h1 className="">Products</h1>
                 <div className="flex align-items-center">
@@ -76,4 +80,13 @@ const Products = () => {
     )
 }
 
-export default Products
+export default Products;
+
+
+/**
+ * Local State vs. Global State - Context API, Redux, Zustand
+ * 
+ * 
+ * 
+ * 
+ */

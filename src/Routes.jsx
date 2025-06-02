@@ -15,7 +15,6 @@ import AuthLayout from './layouts/AuthLayout';
 const AppRoutes = () => {
     return (
         <Routes>
-
             <Route element={<DashboardLayout />}>
                 <Route index element={<Home />} />
                 <Route path="/products" element={<Products />} />

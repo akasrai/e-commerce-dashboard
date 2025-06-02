@@ -85,6 +85,8 @@ export default Products;
 
 /**
  * Local State vs. Global State - Context API, Redux, Zustand
+ * Create a global state for user authentication - DONE
+ * Create a global state for theme management - Assignment
  * 
  * 
  * 

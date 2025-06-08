@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { string, object } from 'yup';
 import { toast } from 'react-toastify';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 
-import { AuthenticationContext } from '../components/AuthContext';
+import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router';
 
 const loginSchema = object({
@@ -28,7 +27,7 @@ const Login = () => {
     });
 
     const navigate = useNavigate();
-    const { loginUser } = useContext(AuthenticationContext);
+    const { login } = useAuth();
 
     const onSubmit = async (data) => {
         // Simulate a login API call
@@ -36,7 +35,7 @@ const Login = () => {
 
         // API call to login user
 
-        loginUser({
+        login({
             email: data.email,
             name: "John Doe"
         });

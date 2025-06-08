@@ -1,12 +1,22 @@
 import axios from "axios";
 
-export const fetchProducts = async (searchQ) => {
-  const response = await axios({
-    method: "get",
-    url: "https://dummyjson.com/products?sortBy=title&order=asc",
-  });
+export const fetchProducts = async () => {
+  try {
+    const response = await axios({
+      method: "get",
+      url: "https://dummyjson.com/products?sortBy=title&order=asc",
+    });
 
-  return response.data;
+    return {
+      data: response.data,
+      error: null,
+    };
+  } catch (error) {
+    return {
+      data: null,
+      error: error.message || "Failed to fetch products",
+    };
+  }
 };
 
 export const addProduct = async (product) => {
@@ -29,4 +39,4 @@ export const fetchProductById = async (productId) => {
   });
 
   return response.data;
-}
+};

@@ -1,10 +1,9 @@
-import { useContext } from 'react';
+import useAuth from '../hooks/useAuth';
 import { getInitials } from '../utils/stringUtils';
-import { AuthenticationContext } from '../components/AuthContext';
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthenticationContext);
+    const { user } = useAuth();
 
     return (
         <div className="navbar w-space-available flex justify-content-right">

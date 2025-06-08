@@ -1,6 +1,11 @@
-import { Link } from "react-router"
+import { Link } from "react-router";
+
+import useAuth from "../hooks/useAuth";
 
 const Sidebar = () => {
+
+    const { logout } = useAuth()
+
     return (
         <div className="sidebar">
             <div className="logo p-20">ZARA</div>
@@ -11,6 +16,9 @@ const Sidebar = () => {
                 </li>
                 <li>
                     <Link to="/products">Products</Link>
+                </li>
+                <li onClick={logout}>
+                    <p>Logout</p>
                 </li>
             </ul>
 

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import Table from "../components/table/Table";
 import useProducts from "../hooks/useProducts";
 import { utcToLocal } from "../utils/dateUtils";
+import withLogging from "../hoc/withLogging";
+import withAuthorization from "../hoc/withAuthorization";
 
 const headers = [
     { label: 'Created At', key: 'createdAt' },
@@ -17,6 +19,7 @@ const headers = [
 
 const Products = () => {
     const navigate = useNavigate();
+
     const { loading, products, error } = useProducts();
 
     const handleAddProduct = () => {
@@ -74,7 +77,7 @@ const Products = () => {
     )
 }
 
-export default Products;
+export default withAuthorization(Products, "ADMIN");
 
 
 /**

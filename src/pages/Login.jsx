@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router';
+import { verifyUserCredentials } from '../data/users';
 
 const loginSchema = object({
     email: string()
@@ -30,15 +31,17 @@ const Login = () => {
     const { login } = useAuth();
 
     const onSubmit = async (data) => {
-        // Simulate a login API call
-        console.log("Login data submitted:", data.email, data.password);
 
-        // API call to login user
+        // Mock API call
+        const user = verifyUserCredentials(data.email, data.password);
 
-        login({
-            email: data.email,
-            name: "John Doe"
-        });
+        if (!user) {
+            toast.error("Invalid email or password");
+
+            return;
+        }
+
+        login(user);
 
         reset({ email: "", password: "" });
 

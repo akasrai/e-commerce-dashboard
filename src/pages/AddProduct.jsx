@@ -4,6 +4,7 @@ import { string, object, number } from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import { addProduct } from "../api/productApi";
+import withAuthorization from '../hoc/withAuthorization';
 
 const productSchema = object({
     title: string()
@@ -101,4 +102,4 @@ const AddProduct = () => {
     )
 }
 
-export default AddProduct;
+export default withAuthorization(AddProduct, "SUPER_ADMIN");

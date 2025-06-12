@@ -6,11 +6,11 @@ import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
 import AddProduct from './pages/AddProduct';
+import AuthLayout from './layouts/AuthLayout';
 import PageNotFound from './pages/PageNotFound';
 import ProductDetail from './pages/ProductDetail';
-import DashboardLayout from './layouts/DashboardLayout';
 import WebsiteLayout from './layouts/WebsiteLayout';
-import AuthLayout from './layouts/AuthLayout';
+import DashboardLayout from './layouts/DashboardLayout';
 
 const AppRoutes = () => {
     return (

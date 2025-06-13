@@ -20,6 +20,9 @@ const Sidebar = () => {
                 <li>
                     <Link to="/products/add-product">Add Products</Link>
                 </li>
+                <li>
+                    <Link to="/users">Users</Link>
+                </li>
                 <li onClick={logout}>
                     <p>Logout</p>
                 </li>

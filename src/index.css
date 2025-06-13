@@ -20,6 +20,10 @@ select {
   display: flex;
 }
 
+.gap-15 {
+  gap: 15px;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -54,7 +58,7 @@ select {
 }
 
 .menu li a,
-p {
+.menu li p {
   padding: 8px 20px;
   text-decoration: none;
   color: #fff;
@@ -222,4 +226,30 @@ input[type="submit"] {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-card {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.user-card h2,
+p {
+  color: #333;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router';
 
 import Home from './pages/Home';
 import About from './pages/About';
+import Users from './pages/Users';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
@@ -11,6 +12,7 @@ import PageNotFound from './pages/PageNotFound';
 import ProductDetail from './pages/ProductDetail';
 import WebsiteLayout from './layouts/WebsiteLayout';
 import DashboardLayout from './layouts/DashboardLayout';
+import UserDetail from './pages/UserDetail';
 
 const AppRoutes = () => {
     return (
@@ -20,6 +22,8 @@ const AppRoutes = () => {
                 <Route path="/products" element={<Products />} />
                 <Route path="/products/add-product" element={<AddProduct />} />
                 <Route path="/products/:productID" element={<ProductDetail />} />
+                <Route path="/users" element={<Users />} />
+                <Route path="/users/:userID" element={<UserDetail />} />
             </Route>
 
             <Route element={<WebsiteLayout />}>

@@ -102,4 +102,4 @@ const AddProduct = () => {
     )
 }
 
-export default withAuthorization(AddProduct, "SUPER_ADMIN");
+export default withAuthorization(AddProduct, "ADMIN");

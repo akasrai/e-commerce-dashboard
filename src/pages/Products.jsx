@@ -3,7 +3,6 @@ import { useNavigate } from "react-router";
 import Table from "../components/table/Table";
 import useProducts from "../hooks/useProducts";
 import { utcToLocal } from "../utils/dateUtils";
-import withLogging from "../hoc/withLogging";
 import withAuthorization from "../hoc/withAuthorization";
 
 const headers = [
@@ -38,6 +37,7 @@ const Products = () => {
                     <button className="mr-15" onClick={handleAddProduct} >Add Product</button>
                 </div>
             </div>
+            
             <Table headers={headers}>
                 {
                     loading && (
@@ -45,7 +45,6 @@ const Products = () => {
                             <td colSpan="6">Loading...</td>
                         </tr>
                     )
-
                 }
                 {
                     error && (

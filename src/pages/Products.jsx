@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import Table from "../components/table/Table";
 import useProducts from "../hooks/useProducts";
 import { utcToLocal } from "../utils/dateUtils";
 import withAuthorization from "../hoc/withAuthorization";
+import Test from "../components/Test";
 
 const headers = [
     { label: 'Created At', key: 'createdAt' },
@@ -19,6 +21,8 @@ const headers = [
 const Products = () => {
     const navigate = useNavigate();
 
+    const [count, setCount] = useState(1);
+
     const { loading, products, error } = useProducts();
 
     const handleAddProduct = () => {
@@ -29,15 +33,20 @@ const Products = () => {
         navigate(`/products/${productId}`);
     }
 
+    // console.log("Products Rendered", products, loading, error);
+    console.log("Product Rendered");
+
     return (
         <div className="">
-            <div className="flex ">
-                <h1 className="">Products</h1>
+            <div className="flex">
+                <h1 onClick={() => setCount(count + 1)} className="">Products {count}</h1>
                 <div className="flex align-items-center">
                     <button className="mr-15" onClick={handleAddProduct} >Add Product</button>
                 </div>
             </div>
-            
+
+            <Test products={products} />
+
             <Table headers={headers}>
                 {
                     loading && (

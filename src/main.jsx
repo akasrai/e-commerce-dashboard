@@ -12,10 +12,10 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   <AuthContext>
     <BrowserRouter>
-      <StrictMode>
-        <AppRoutes />
-        <ToastContainer />
-      </StrictMode>
+      {/* <StrictMode> */}
+      <AppRoutes />
+      <ToastContainer />
+      {/* </StrictMode> */}
     </BrowserRouter>
   </AuthContext>
 );

@@ -1,5 +1,9 @@
+import React from "react";
+
 const Table = (props) => {
     const { children, headers } = props;
+
+    // console.log("Product Table Rendered");
 
     return (
         <div className="table-wrapper">
@@ -19,6 +23,6 @@ const Table = (props) => {
             </table>
         </div>
     )
-}
+};
 
-export default Table;
+export default React.memo(Table);

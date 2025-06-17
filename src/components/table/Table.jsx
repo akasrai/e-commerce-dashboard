@@ -3,8 +3,6 @@ import React from "react";
 const Table = (props) => {
     const { children, headers } = props;
 
-    // console.log("Product Table Rendered");
-
     return (
         <div className="table-wrapper">
             <table className="table" cellSpacing={0} >

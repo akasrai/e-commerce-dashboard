@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 
 import Table from "../components/table/Table";
@@ -22,8 +22,9 @@ const Products = () => {
     const navigate = useNavigate();
 
     const [count, setCount] = useState(1);
+    const [page, setPage] = useState(0);
 
-    const { loading, products, error } = useProducts();
+    const { loading, products, error } = useProducts(page);
 
     const handleAddProduct = () => {
         navigate('/products/add-product');
@@ -33,7 +34,47 @@ const Products = () => {
         navigate(`/products/${productId}`);
     }
 
-    // console.log("Products Rendered", products, loading, error);
+    const getTotalCount = () => {
+        // console.log("Calculating total count");
+
+        return products.length;
+    }
+
+    const getTotalCountCached = useCallback(() => {
+        // console.log("Calculating total count cached");
+
+        return products.length;
+    }, [products]);
+
+    const getTotalPrice = () => {
+        // console.log("Calculating total price");
+
+        return products
+            .reduce((acc, product) => acc + product.price, 0)
+            .toFixed(2);
+    }
+
+    const totalPrice = useMemo(() => {
+        // console.log("Calculating total price with memoization");
+
+        return products
+            .reduce((acc, product) => acc + product.price, 0)
+            .toFixed(2);
+    }, [products]);
+
+    const prevCallbackRef = useRef();
+
+    useEffect(() => {
+        if (prevCallbackRef.current) {
+            const isSame = Object.is(prevCallbackRef.current, getTotalCountCached);
+            console.log(`🧠 Callback is ${isSame ? 'the same' : 'different'} as last render`);
+        } else {
+            console.log('🆕 First render, no previous callback to compare');
+        }
+
+        prevCallbackRef.current = getTotalCountCached;
+    }, [getTotalCountCached]);
+
     console.log("Product Rendered");
 
     return (
@@ -43,9 +84,14 @@ const Products = () => {
                 <div className="flex align-items-center">
                     <button className="mr-15" onClick={handleAddProduct} >Add Product</button>
                 </div>
-            </div>
 
-            <Test products={products} />
+            </div>
+            <div className="flex p-20 gap-15">
+                <p>Product Count: {getTotalCount()}</p>
+                <p>Product Count (Cached): {getTotalCountCached()}</p>
+                <p>Total Price: ${getTotalPrice()}</p>
+                <p>Total Price (Memoized): ${totalPrice}</p>
+            </div>
 
             <Table headers={headers}>
                 {
@@ -81,6 +127,10 @@ const Products = () => {
                     ))
                 }
             </Table>
+            <div className="flex gap-15">
+                <button onClick={() => setPage(page - 1)}>Prev</button>
+                <button onClick={() => setPage(page + 1)}>Next</button>
+            </div>
         </div>
     )
 }

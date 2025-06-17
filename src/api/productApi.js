@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const fetchProducts = async () => {
+export const fetchProducts = async (page = 0) => {
   try {
     const response = await axios({
       method: "get",
-      url: "https://dummyjson.com/products?sortBy=title&order=asc",
+      url: `https://dummyjson.com/products?limit=5&skip=${page}&sortBy=title&order=asc`,
     });
 
     return {

@@ -1,10 +1,17 @@
 import { Link } from "react-router";
 
 import useAuth from "../hooks/useAuth";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Sidebar = () => {
 
-    const { logout } = useAuth()
+    const { logout } = useAuth();
+    const { logout: auth0Logout } = useAuth0();
+
+    const handleLogout = () => {
+        logout();
+        auth0Logout({ returnTo: window.location.origin });
+    };
 
     return (
         <div className="sidebar">
@@ -23,7 +30,7 @@ const Sidebar = () => {
                 <li>
                     <Link to="/users">Users</Link>
                 </li>
-                <li onClick={logout}>
+                <li onClick={handleLogout}>
                     <p>Logout</p>
                 </li>
             </ul>

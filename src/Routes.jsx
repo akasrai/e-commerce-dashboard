@@ -13,6 +13,7 @@ import ProductDetail from './pages/ProductDetail';
 import WebsiteLayout from './layouts/WebsiteLayout';
 import DashboardLayout from './layouts/DashboardLayout';
 import UserDetail from './pages/UserDetail';
+import Auth0Callback from './pages/Auth0Callback';
 
 const AppRoutes = () => {
     return (
@@ -33,7 +34,9 @@ const AppRoutes = () => {
 
             <Route element={<AuthLayout />}>
                 <Route path="/auth/login" element={<Login />} />
+                <Route path="/auth0/callback" element={<Auth0Callback />} />
             </Route>
+
 
             <Route path="*" element={<PageNotFound />} />
         </Routes>

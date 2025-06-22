@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router';
 import { verifyUserCredentials } from '../data/users';
+import Auth0LoginButton from '../components/Auth0LoginButton';
 
 const loginSchema = object({
     email: string()
@@ -66,11 +67,12 @@ const Login = () => {
 
                     {errors.password && <span className='error-message'>{errors.password?.message}</span>}
                 </div>
-                <button className="" type="submit" disabled={isSubmitting}>
+                <button className="mb-20" type="submit" disabled={isSubmitting}>
                     {
                         isSubmitting ? "Logging in..." : "Login"
                     }
                 </button>
+                <Auth0LoginButton />
             </form>
         </div>
     )

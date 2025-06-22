@@ -146,4 +146,10 @@ export default withAuthorization(Products, "ADMIN");
  * Create custom hooks for: theme management - useTheme, cart management - useCart
  * 
  * 
+ * 
+ * 
+ * https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?scope=openid%20profile%20email&state=41d532e276b31299a889316deda28c68e7b2aafa1a127a04d53d82da7b63d8e064558a73d6a68b06b2b9f2499597b61f3348ee70fa07659acb599d56e92aedb6aa2b7087242afa96b663ff150e91c1befaa9bdb69cecc89d63e3336b171e0d0b237f6cd8b5783d079b5c4a6d5960bb87ae84879b866deb13ec0a8d7fa7ec65c3c9863b904d80fba4232cfa624949d22adc388ae326ea1c1a26deb1866fce0d8a7cc6b7c58c538c889f88ee1be7489e517a86b31000ab45bcf9&response_type=code&client_id=258013614557-nema0dumfbottebi6to7aqi85qot9pvs.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fvercel.com%2Fapi%2Fregistration%2Fgoogle%2Fcallback&service=lso&o2v=2&flowName=GeneralOAuthFlow
+ * 
+ * 
+ * https://vercel.com/api/registration/google/callback&service=lso&o2v=2&flowName=GeneralOAuthFlow
  */

@@ -15,6 +15,7 @@ const Auth0Callback = () => {
                 name: user?.name,
                 email: user?.email,
                 picture: user?.picture,
+                roles: ["ADMIN"],
             }
             toast.success("Login successful");
             login(loggedInUser);

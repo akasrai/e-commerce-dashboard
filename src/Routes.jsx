@@ -16,9 +16,18 @@ const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 const WebsiteLayout = lazy(() => import('./layouts/WebsiteLayout'));
 const DashboardLayout = lazy(() => import('./layouts/DashboardLayout'));
 
+
+const FallbackPage = () => {
+    return (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            Getting Started. Please Wait.
+        </div>
+    );
+}
+
 const AppRoutes = () => {
     return (
-        <Suspense fallback={<div>Getting Started. Please Wait.</div>}>
+        <Suspense fallback={<FallbackPage />}>
             <Routes>
                 <Route element={<DashboardLayout />}>
                     <Route index element={<Home />} />

@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const fetchProducts = async (page = 0) => {
   try {
     const response = await axios({
       method: "get",
-      url: `https://dummyjson.com/products?limit=5&skip=${page}&sortBy=title&order=asc`,
+      url: `${BASE_URL}/products?limit=5&skip=${page}&sortBy=title&order=asc`,
     });
 
     return {
@@ -22,7 +24,7 @@ export const fetchProducts = async (page = 0) => {
 export const addProduct = async (product) => {
   const response = await axios({
     method: "post",
-    url: "https://dummyjson.com/products/add",
+    url: `${BASE_URL}/products/add`,
     data: product,
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +37,7 @@ export const addProduct = async (product) => {
 export const fetchProductById = async (productId) => {
   const response = await axios({
     method: "get",
-    url: `https://dummyjson.com/products/${productId}`,
+    url: `${BASE_URL}/products/${productId}`,
   });
 
   return response.data;
@@ -45,7 +47,7 @@ export const fetchUsers = async () => {
   try {
     const response = await axios({
       method: "get",
-      url: "https://dummyjson.com/users",
+      url: `${BASE_URL}/users`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -67,7 +69,7 @@ export const fetchUserById = async (userId) => {
   try {
     const response = await axios({
       method: "get",
-      url: `https://dummyjson.com/users/${userId}`,
+      url: `${BASE_URL}/users/${userId}`,
       headers: {
         "Content-Type": "application/json",
       },

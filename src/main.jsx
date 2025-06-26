@@ -10,12 +10,16 @@ import AuthContext from './components/AuthContext.jsx';
 
 import './index.css'
 
+const AUTH0_DOMAIN = import.meta.env.VITE_AUTH0_DOMAIN;
+const AUTH0_CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+const AUTH0_CALLBACK_PATH = import.meta.env.VITE_CALLBACK_PATH;
+
 createRoot(document.getElementById('root')).render(
   <Auth0Provider
-    domain="dev-8ly62yv06gunguen.us.auth0.com"
-    clientId="MttJ8WhMEI0ijOMvoYsL7KnKU91lXweO"
+    domain={AUTH0_DOMAIN}
+    clientId={AUTH0_CLIENT_ID}
     authorizationParams={{
-      redirect_uri: window.location.origin + "/auth0/callback",
+      redirect_uri: window.location.origin + AUTH0_CALLBACK_PATH,
     }}
   >
     <AuthContext>

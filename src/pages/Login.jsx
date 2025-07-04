@@ -15,7 +15,6 @@ const loginSchema = object({
     password: string()
         .required("password is required.")
 
-
 });
 
 const Login = () => {

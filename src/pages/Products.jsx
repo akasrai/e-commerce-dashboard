@@ -5,7 +5,6 @@ import Table from "../components/table/Table";
 import useProducts from "../hooks/useProducts";
 import { utcToLocal } from "../utils/dateUtils";
 import withAuthorization from "../hoc/withAuthorization";
-import Test from "../components/Test";
 
 const headers = [
     { label: 'Created At', key: 'createdAt' },
